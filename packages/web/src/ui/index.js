@@ -75,7 +75,6 @@ function init () {
   // adjust the relevant divs
     if (menu) {
       setElementHeight(menu, window.innerHeight + 'px')
-      menuHandle.style.top = '45%'
     }
     if (editFrame) {
       setElementHeight(editFrame, window.innerHeight + 'px')
@@ -88,7 +87,7 @@ function init () {
 
     let initialMenuHidingTimeoutID = setTimeout(function () {
       initialMenuHidingTimeoutID = null
-      menu.style.left = '-280px'
+      
       menuHandle.src = 'imgs/menuHandleVLOut.png'
       if (examples) {
         setElementHeight(examples, '0px')
@@ -144,13 +143,16 @@ function init () {
       }
       // When open, left may be '' or '0' or '0px'.  When closed, it's reliably
       // '-280px', so test against that.
-      if (menu.style.left === '-280px') {
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden')
+        if (!editFrame.classList.contains('hidden')) {          
+          editFrame.classList.add('hidden')
+        }
         // It's closed; open it.
-        menu.style.left = '0'
         menuHandle.src = 'imgs/menuHandleVLIn.png'
       } else {
         // It's open; close it, and close Examples with it.
-        menu.style.left = '-280px'
+        menu.classList.add('hidden')
         menuHandle.src = 'imgs/menuHandleVLOut.png'
         if (examples) {
           setElementHeight(examples, '0px')
@@ -163,11 +165,14 @@ function init () {
   if (editFrame) {
     let editHandle = document.getElementById('editHandle')
     editHandle.addEventListener('click', function (e) {
-      if (getElementWidth(editFrame) === 0) {
-        setElementWidth(editFrame, '40%')
+      if (editFrame.classList.contains('hidden')) {
+        editFrame.classList.remove('hidden')
+        if (!menu.classList.contains('hidden')) {          
+          menu.classList.add('hidden')
+        }
         editHandle.src = 'imgs/editHandleIn.png'
       } else {
-        setElementWidth(editFrame, '0px')
+        editFrame.classList.add('hidden')
         editHandle.src = 'imgs/editHandleOut.png'
       }
     })

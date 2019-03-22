@@ -3,6 +3,7 @@
  */
 
 html, body {
+   position: absolute;
    margin: 0px;             /* not inherited */
    border: 0px none black;  /* not inherited */
    padding: 0px;            /* not inherited */
@@ -33,37 +34,32 @@ a:visited {
    position: absolute;
    top: 1em;
    left: 1em;
-   z-index: 20;
+   z-index: 1;
 }
 
 #editFrame {
-/*  display: none; */
-
-  margin: 0;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-/*  left: 0; */
-  right: 0;
-
-  width: 40%;
-  font-weight: normal;
+   transition: left 0.4s;
+   position: relative;
+   margin: 0;
+   top: 0;
+   bottom: 0;
+   left: 18px;
+   right: 0;
+   height: 100%;
+   font-weight: normal;
+}
+#editFrame.hidden {
+   left: 100%;
 }
 
 #editHandle {
-  left: -25px;
-  top: 45%;
   position: absolute;
-  z-index: 6;
+  left: -25px;
+  top: 37%;
+  z-index: 99;
   opacity: 0.9;
 }
 
-#editFrame {
-  transition: width 0.4s;
-  -o-transition: width 0.4s;
-  -moz-transition: width 0.4s;
-  -webkit-transition: width 0.4s;
-}
 
 .ace_gutter {
    border-left: 1px solid #ccc;
@@ -72,17 +68,14 @@ a:visited {
 
 #editor {
   margin: inherit;
-  position: inherit;
+  position: fixed;
   top:    inherit;
   bottom: inherit;
   left:   inherit;
   right:  inherit;
   width: 100%;
   z-index: 6;
-/*
-   background: transparent;
-*/
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.73);
 }
 
 #viewerContext {
@@ -97,6 +90,7 @@ a:visited {
 
    top: 0px;
    bottom: 0px;
+   position: absolute;
 }
 
 canvas {
@@ -125,6 +119,11 @@ canvas {
    padding: 1.5em;
    text-align: center;
    z-index: 100;
+}
+
+.material-icons {   
+   position: relative;
+   top: 6px;
 }
 
 .okButton {
@@ -165,54 +164,29 @@ canvas {
    vertical-align: middle;
 }
 
-#menu, #menu nav a {
-   transition: all 0.4s;
-   -o-transition: all 0.4s;
-   -moz-transition: all 0.4s;
-   -webkit-transition: all 0.4s;
-}
-
 #menu {
+   transition: right 0.4s;
+   position: absolute;
+   margin: 0;
+   top: 0;
+   bottom: 0;
+   padding: 10px;
+   right: 18px;
+   height: 100%;
+   width: calc(100% - 38px);
    background: white;
-
-   opacity: 0.8;
-   -moz-opacity: 0.8;
-
-   border-right: 1px solid black;
-   height: inherit;
-   width: 250px;
-   padding-left: 20px;
-   padding-right: 10px;
-   position: fixed;
-   z-index: 5;
-
-   font-size: 0.9em;
-
-   box-shadow: 4px 0 10px rgba(0,0,0,0.25);
-   -moz-box-shadow: 4px 0 10px rgba(0,0,0,0.25);
-   -webkit-box-shadow: 4px 0 10px rgba(0,0,0,0.25);
+   z-index: 30;
 }
 
-#menu {
-   left: 0;
+#menu.hidden {
+   right: 100%;
 }
 
 #menuHandle {
    right: -25px;
-   top: 45%;
+   top: 50%;
    position: absolute;
    z-index: 6;
-}
-
-#menu nav {
-   position: relative;
-   top: 50px;
-}
-
-#menu nav .navlink {
-}
-
-#menu nav .navlink:hover {
 }
 
 #menu #examples {
@@ -224,10 +198,6 @@ canvas {
    background: yellow;
    padding-left: 4px;
    padding-right: 4px;
-}
-
-#menu #examples, #menu #examples a {
-   margin-top: 0px;
 }
 
 #menu .info {
@@ -301,8 +271,6 @@ canvas {
    z-index: 10;
 }
 
-.examplesSeparator {
-}
 
 #options {
    width: auto;
@@ -385,4 +353,17 @@ canvas {
 .shift-horizontal .arrow-top,
 .shift-horizontal .arrow-bottom {
    display: none;
+}
+
+#filedropzone_empty {
+   display: none !important;
+}
+
+#filedropzone{
+   width: auto !important;
+   padding: 0px 15px !important;
+}
+
+#filedropzone_input{
+   display: block !important;
 }
