@@ -14,6 +14,7 @@
 
 // --- Global Variables
 const ace = require('brace')
+const beautify = require('js-beautify')
 require('brace/mode/javascript')
 require('brace/mode/scad')
 require('brace/theme/chrome')
@@ -72,6 +73,25 @@ function setUpEditor (divname, gProcessor) {
       gProcessor.setJsCad(src)
     }
   }
+
+  function runBeautifier(editor) {
+    var src = editor.getValue()
+    if (src.match(/^\/\/\!OpenSCAD/i)) {
+      // editor.getSession().setMode('ace/mode/scad')
+      // // FIXME test for the global function first
+      // src = openscadOpenJscadParser.parse(src)
+    } else {
+      editor.setValue(beautify(src))
+    }
+  }
+
+
+  gEditor.commands.addCommand({
+    name: 'beautifier',
+    bindKey: { win: 'F6', mac: 'F6' },
+    exec: runBeautifier
+  })
+
   // enable special keystrokes
   gEditor.commands.addCommand({
     name: 'setJSCAD',

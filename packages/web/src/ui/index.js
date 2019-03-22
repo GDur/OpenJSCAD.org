@@ -239,6 +239,9 @@ function init () {
       document.getElementById('updateRendering').onclick = function (e) {
         gEditor.commands.exec('setJSCAD', gEditor)
       }
+      document.getElementById('beautify').onclick = function (e) {
+        gEditor.commands.exec('beautifier', gEditor)
+      }
       
       // setInterval(function () {
       //   console.log("sdf", gEditor)
