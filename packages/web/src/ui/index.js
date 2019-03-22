@@ -94,8 +94,7 @@ function init () {
       
       menuHandle.src = 'imgs/menuHandleVLOut.png'
       if (examples) {
-        setElementHeight(examples, '0px')
-        examples.style.display = 'none'
+        examples.classList.add('hidden')
       }
     }, 3000) // -- hide slide-menu after 3secs
 
@@ -112,12 +111,10 @@ function init () {
         }
         // When closed, examples.style.display may be '' or 'none'.
         // When open, it's reliably 'inline', so test against that.
-        if (examples.style.display === 'inline') {
-          setElementHeight(examples, '0px')
-          examples.style.display = 'none'
+        if (examples.classList.contains('hidden')) {     
+          examples.classList.remove('hidden')
         } else {
-          setElementHeight(examples, 'auto')
-          examples.style.display = 'inline'
+          examples.classList.add('hidden')
         }
       })
 
@@ -159,8 +156,7 @@ function init () {
         menu.classList.add('hidden')
         menuHandle.src = 'imgs/menuHandleVLOut.png'
         if (examples) {
-          setElementHeight(examples, '0px')
-          examples.style.display = 'none'
+          examples.classList.add('hidden')
         }
       }
     })
@@ -184,6 +180,7 @@ function init () {
     tail.classList.add('hidden')
     header.classList.add('hidden')
     parametersdiv.classList.add('hidden')
+    examples.classList.add('hidden')
   }
 
   if (editFrame) {
