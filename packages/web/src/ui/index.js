@@ -235,6 +235,16 @@ function init () {
         const toggle = document.getElementById('autoreload').checked
         toggleAutoReload(toggle)
       }
+
+      document.getElementById('updateRendering').onclick = function (e) {
+        gEditor.commands.exec('setJSCAD', gEditor)
+      }
+      
+      // setInterval(function () {
+      //   console.log("sdf", gEditor)
+        
+      //   // toggleAutoReload(true)
+      // }, 1000)
     }
   }
 

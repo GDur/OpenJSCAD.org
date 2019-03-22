@@ -25,15 +25,19 @@ Purpose:
     <script src="dist/index.js"></script>
 <!-- top left header (logo and error message) -->
     <div id="header">
-      <img src="imgs/title.png">
-      <div id="errordiv"></div>
-    </div>
+        <img src="imgs/title.png">
+        <div id="errordiv"></div>
+      </div>
+
+      <div id="buttonMenu">
+        <button id="updateRendering" class="btn"><i class="material-icons">refresh</i></button>
+      </div>
 
 <!-- sliding tab (help, links, examples, options, etc) -->
     <nav id="menu" class="hidden">
       <img id="menuHandle" src="imgs/menuHandleVLIn.png">
       <div id="menuVersion"></div>
-      <p/>
+      
       <table class="info">
         <tr><td class="infoView" colspan=2>Editor</td></tr>
         <tr><td align="right" class="infoOperation">Render Code</td><td class="infoKey">F5 or SHIFT + Return</td></tr>
@@ -65,13 +69,13 @@ Purpose:
       </div>
       <div id="examples"></div>
       <span class="menuSubInfo">Dozens of examples to learn from</span>
-      <p/>
+      
 <!--
       <div id="optionsTitle" class="navlink"><a href='#' onclick='return false'>Options</a></div>
       <div id="options"></div>
       <span class="menuSubInfo">Your personal settings</span></p>
 -->
-      <p/>
+
       <b>Supported Formats</b>
       <table class="info">
         <tr><td align="right"><b>jscad</b></td><td><a target="_blank" rel="noopener" href="https://openjscad.org/dokuwiki/doku.php">OpenJSCAD</a> (native, import/export)</td></tr>
