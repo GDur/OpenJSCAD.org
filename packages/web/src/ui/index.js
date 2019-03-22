@@ -1,3 +1,7 @@
+
+const openscadOpenJscadParser = require('@jscad/openscad-openjscad-translator')
+
+
 // == OpenJSCAD.org, Copyright (c) 2013-2016, Licensed under MIT License
 const { setUpEditor } = require('./editor')
 const { setupDragDrop } = require('./dragDrop/ui-drag-drop') // toggleAutoReload
@@ -145,8 +149,8 @@ function init () {
       // '-280px', so test against that.
       if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden')
-        if (!editFrame.classList.contains('hidden')) {          
-          editFrame.classList.add('hidden')
+        if (!editFrame.classList.contains('hidden')) {
+          hideEditFrame()
         }
         // It's closed; open it.
         menuHandle.src = 'imgs/menuHandleVLIn.png'
@@ -162,17 +166,37 @@ function init () {
     })
   }
 
+  // let footer = document.querySelector('#footer')
+  let parametersdiv   = document.querySelector('#parametersdiv')
+  
+
+  function hideEditFrame() {
+    editFrame.classList.add('hidden')
+    footer.classList.remove('hidden')
+    tail.classList.remove('hidden')
+    header.classList.remove('hidden')
+    parametersdiv.classList.remove('hidden')
+  }
+
+  function showEditFrame() {
+    editFrame.classList.remove('hidden')
+    footer.classList.add('hidden')
+    tail.classList.add('hidden')
+    header.classList.add('hidden')
+    parametersdiv.classList.add('hidden')
+  }
+
   if (editFrame) {
     let editHandle = document.getElementById('editHandle')
     editHandle.addEventListener('click', function (e) {
       if (editFrame.classList.contains('hidden')) {
-        editFrame.classList.remove('hidden')
+        showEditFrame()
         if (!menu.classList.contains('hidden')) {          
           menu.classList.add('hidden')
         }
         editHandle.src = 'imgs/editHandleIn.png'
       } else {
-        editFrame.classList.add('hidden')
+        hideEditFrame()
         editHandle.src = 'imgs/editHandleOut.png'
       }
     })
@@ -239,15 +263,10 @@ function init () {
       document.getElementById('updateRendering').onclick = function (e) {
         gEditor.commands.exec('setJSCAD', gEditor)
       }
+
       document.getElementById('beautify').onclick = function (e) {
         gEditor.commands.exec('beautifier', gEditor)
       }
-      
-      // setInterval(function () {
-      //   console.log("sdf", gEditor)
-        
-      //   // toggleAutoReload(true)
-      // }, 1000)
     }
   }
 

@@ -25,14 +25,14 @@ Purpose:
     <script src="dist/index.js"></script>
 <!-- top left header (logo and error message) -->
     <div id="header">
-        <img src="imgs/title.png">
-        <div id="errordiv"></div>
-      </div>
+      <a href="https://openjscad.org/"><img src="imgs/title.png"></a>        
+      <div id="errordiv"></div>
+    </div>
 
-      <div id="buttonMenu">
-          <button id="updateRendering" class="btn" title="refresh view"><i class="material-icons">refresh</i></button>
-          <button id="beautify" class="btn" title="reformat"><i class="material-icons">format_indent_increase</i></button>
-      </div>
+    <div id="buttonMenu">
+        <button id="updateRendering" class="btn" title="refresh view"><i class="material-icons">refresh</i></button>
+        <button id="beautify" class="btn" title="reformat"><i class="material-icons">format_indent_increase</i></button>
+    </div>
       
 <!-- sliding tab (help, links, examples, options, etc) -->
     <nav id="menu" class="hidden">
@@ -54,15 +54,15 @@ Purpose:
         <tr><td align="right" class="infoOperation">Zoom In/Out</td><td class="infoKey">Wheel Mouse or CTRL + Left Mouse</td></tr>
       </table>
       <p>
-        <a class="navlink" href="https://openjscad.org/dokuwiki/doku.php" target="_blank" rel="noopener">User Guide / Documentation <img src="imgs/externalLink.png" style="externalLink"></a>
+        <a class="navlink" href="https://openjscad.org/dokuwiki/doku.php" target="_blank" rel="noopener">User Guide / Documentation <i class="material-icons"> open_in_new </i></a>
         <br/><span class="menuSubInfo">How to program with OpenJSCAD: online, offline &amp; CLI</span>
       </p>
       <p>
-        <a class="navlink" href="https://plus.google.com/communities/114958480887231067224" rel="publisher" target="_blank" rel="noopener">Recent Updates <img src="imgs/externalLink.png" style="externalLink"></a>
+        <a class="navlink" href="https://plus.google.com/communities/114958480887231067224" rel="publisher" target="_blank" rel="noopener">Recent Updates <i class="material-icons"> open_in_new </i></a>
         <br/><span class="menuSubInfo">Announcements of recent developments</span>
       </p>
       <p>
-        <a class="navlink" href="https://plus.google.com/communities/114958480887231067224" target="_blank" rel="noopener">Google+ Community <img src="imgs/externalLink.png" style="externalLink"></a>
+        <a class="navlink" href="https://plus.google.com/communities/114958480887231067224" target="_blank" rel="noopener">Google+ Community <i class="material-icons"> open_in_new </i></a>
         <br/><span class="menuSubInfo">Discuss with other users &amp; developers</span>
       </p>
       <div id="examplesTitle" class="navlink">
@@ -77,7 +77,7 @@ Purpose:
       <span class="menuSubInfo">Your personal settings</span></p>
 -->
 
-      <b>Supported Formats</b>
+      <h4>Supported Formats</h4>
       <table class="info">
         <tr><td align="right"><b>jscad</b></td><td><a target="_blank" rel="noopener" href="https://openjscad.org/dokuwiki/doku.php">OpenJSCAD</a> (native, import/export)</td></tr>
         <tr><td align="right"><b>scad</b></td><td><a target="_blank" rel="noopener" href="http://openscad.org">OpenSCAD</a> (<a target=_blank href="https://openjscad.org/dokuwiki/doku.php">experimental</a>, import)</td></tr>
@@ -129,7 +129,7 @@ Get your copy/clone/fork from <a href="https://github.com/jscad/OpenJSCAD.org" t
     </div> <!-- about -->
 
 <!-- editor -->
-    <div id="editFrame">
+    <div id="editFrame" class="hidden">
       <img id="editHandle" src="imgs/editHandleIn.png"></img>
       <div id="editor">
 // -- OpenJSCAD.org logo

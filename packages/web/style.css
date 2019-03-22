@@ -32,9 +32,14 @@ a:visited {
 
 #header {
    position: absolute;
-   top: 1em;
-   left: 1em;
+   top: 0;
+   left: 0;
+   margin: 10px;
    z-index: 1;
+}
+
+#header img {   
+   height: 32px;
 }
 
 #editFrame {
@@ -43,7 +48,7 @@ a:visited {
    margin: 0;
    top: 0;
    bottom: 0;
-   left: 18px;
+   left: 60%;
    right: 0;
    height: 100%;
    font-weight: normal;
@@ -57,9 +62,8 @@ a:visited {
   cursor: pointer;
   position: absolute;
   left: -25px;
-  top: 37%;
+  top: 45%;
   z-index: 99;
-  opacity: 0.9;
 }
 
 
@@ -126,7 +130,8 @@ canvas {
 
 .material-icons {   
    position: relative;
-   top: 6px;
+   top: 5px;
+   font-size: larger;
 }
 
 .okButton {
@@ -168,29 +173,29 @@ canvas {
 }
 
 #menu {
-   transition: right 0.4s;
+   transition: 0.4s;
    position: absolute;
    margin: 0;
    top: 0;
    bottom: 0;
    padding: 10px;
-   right: 18px;
    height: 100%;
-   width: calc(100% - 38px);
    background: white;
-   z-index: 30;
+   z-index: 30;  
+   border-right: 1px solid #cccccc;
+   transform: translateX(0);
 }
 
 #menu.hidden {
-   right: 100%;
+   transform: translateX(-100%);
 }
 
 #menuHandle {
    cursor: pointer;
    right: -25px;
-   top: 50%;
+   top: 45%;
    position: absolute;
-   z-index: 6;
+   z-index: 99;
 }
 
 #menu #examples {
@@ -324,9 +329,11 @@ canvas {
    opacity: 0.8;
    display: none;
 }
+
 .shift-scene.active {
    display: block;
 }
+
 .arrow {
    width: 0px;
    height: 0px;
@@ -336,22 +343,27 @@ canvas {
    margin-left: 30px;
    margin-top: 30px;
 }
+
 .arrow-left {
    border-right-color: #666;
    margin-left: -90px;
 }
+
 .arrow-right {
    border-left-color: #666;
    margin-left: 150px;
 }
+
 .arrow-top {
    border-bottom-color: #666;
    margin-top: -90px;
 }
+
 .arrow-bottom {
    border-top-color: #666;
    margin-top: 150px;
 }
+
 .shift-vertical .arrow-left,
 .shift-vertical .arrow-right,
 .shift-horizontal .arrow-top,
@@ -359,21 +371,8 @@ canvas {
    display: none;
 }
 
-#filedropzone_empty {
-   display: none !important;
-}
-
-#filedropzone{
-   width: auto !important;
-   padding: 0px 15px !important;
-}
-
-#filedropzone_input{
-   display: block !important;
-}
 
 #buttonMenu {
-   cursor: pointer;
    position: absolute;
    top: 0;
    right: 0;
@@ -398,4 +397,50 @@ canvas {
 .btn .material-icons {
    position: relative;
    top: 1px;
+}
+
+
+/*
+ Responsive style adjustments (if smaller than 450px)
+*/
+@media (max-width: 768px) { 
+   
+   #filedropzone_empty {
+      display: none !important;
+   }
+
+   #filedropzone{
+      width: auto !important;
+      padding: 0px 15px !important;
+   }
+
+   #filedropzone_input{
+      display: block !important;
+   }
+
+   #footer.hidden,
+   #tail.hidden,
+   #header.hidden,
+   #parametersdiv.hidden {
+      display: none !important;
+   }
+
+   #editHandle {
+      top: 37%;
+   }
+   
+   #menuHandle {
+      top: 50%;
+   }
+
+   #editFrame {
+      left: 18px;
+   }
+
+   #menu {      
+      transform: translateX(0);
+      width: calc(100% - 38px);
+   }
+
+
 }
