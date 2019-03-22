@@ -48,11 +48,13 @@ a:visited {
    height: 100%;
    font-weight: normal;
 }
+
 #editFrame.hidden {
    left: 100%;
 }
 
 #editHandle {
+  cursor: pointer;
   position: absolute;
   left: -25px;
   top: 37%;
@@ -184,6 +186,7 @@ canvas {
 }
 
 #menuHandle {
+   cursor: pointer;
    right: -25px;
    top: 50%;
    position: absolute;
@@ -370,6 +373,7 @@ canvas {
 }
 
 #buttonMenu {
+   cursor: pointer;
    position: absolute;
    top: 0;
    right: 0;
@@ -378,6 +382,7 @@ canvas {
 }
 
 .btn {   
+   cursor: pointer;
    background: #ec7dff;
    color: white;
    border: none;
