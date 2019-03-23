@@ -74,14 +74,18 @@ function setUpEditor (divname, gProcessor) {
     }
   }
 
-  function runBeautifier(editor) {
+  function runCodeBeautifier(editor) {
     var src = editor.getValue()
     if (src.match(/^\/\/\!OpenSCAD/i)) {
-      // editor.getSession().setMode('ace/mode/scad')
-      // // FIXME test for the global function first
-      // src = openscadOpenJscadParser.parse(src)
+      // could not find a beautifier for open scad code
+      // if someone does, please add it
     } else {
-      editor.setValue(beautify(src))
+      editor.setValue(beautify(src, {
+        "indent_size": "2",
+        "js": {
+          "brace_style": "collapse,preserve-inline"
+        }
+      }))
     }
   }
 
@@ -89,7 +93,7 @@ function setUpEditor (divname, gProcessor) {
   gEditor.commands.addCommand({
     name: 'beautifier',
     bindKey: { win: 'F6', mac: 'F6' },
-    exec: runBeautifier
+    exec: runCodeBeautifier
   })
 
   // enable special keystrokes
