@@ -186,7 +186,11 @@ canvas {
 }
 
 #menu.hidden {
-   transform: translateX(-100%);
+   transform: translateX(calc(-100% + 1px));
+}
+
+#menu:hover {
+   transform: translateX(0%);
 }
 
 #menuHandle {
@@ -194,7 +198,7 @@ canvas {
    right: -25px;
    top: 45%;
    position: absolute;
-   z-index: 99;
+   z-index: 1;
 }
 
 #menu #examples {
@@ -407,6 +411,14 @@ canvas {
    pointer-events: none !important;
 }
 
+#examples,
+#footer,
+#tail,
+#header,
+#parametersdiv {
+   transition: .4s;
+}
+
 /*
  Responsive style adjustments (if smaller than 450px)
 */
@@ -416,21 +428,13 @@ canvas {
       display: none !important;
    }
 
-   #filedropzone{
+   #filedropzone {
       width: auto !important;
       padding: 0px 15px !important;
    }
 
    #filedropzone_input{
       display: block !important;
-   }
-
-   #examples,
-   #footer,
-   #tail,
-   #header,
-   #parametersdiv {
-      transition: .4s;
    }
 
    #footer.hidden,
@@ -448,6 +452,7 @@ canvas {
    
    #menuHandle {
       top: 50%;
+      z-index: 99;
    }
 
    #editFrame {
@@ -458,8 +463,13 @@ canvas {
       background: rgba(255, 255, 255, 0.73);
    }
 
-   #menu {      
+   #menu {
+      background: #ffffffd9;
       transform: translateX(0);
       width: calc(100% - 38px);
+   }
+
+   #menu.hidden {
+      transform: translateX(calc(-100% + 1px)) !important;
    }
 }

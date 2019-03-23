@@ -67,6 +67,7 @@ function init () {
   let tail = document.getElementById('tail');
   let footer = document.getElementById('footer');
   let editFrame = document.getElementById('editFrame');
+  let parametersdiv   = document.querySelector('#parametersdiv')
 
   //createOptions()
   //getOptions()
@@ -92,7 +93,9 @@ function init () {
     let initialMenuHidingTimeoutID = setTimeout(function () {
       initialMenuHidingTimeoutID = null
       
+      menu.classList.add('hidden')
       menuHandle.src = 'imgs/menuHandleVLOut.png'
+
       if (examples) {
         examples.classList.add('hidden')
       }
@@ -109,8 +112,7 @@ function init () {
           clearTimeout(initialMenuHidingTimeoutID)
           initialMenuHidingTimeoutID = null
         }
-        // When closed, examples.style.display may be '' or 'none'.
-        // When open, it's reliably 'inline', so test against that.
+        
         if (examples.classList.contains('hidden')) {     
           examples.classList.remove('hidden')
         } else {
@@ -142,15 +144,15 @@ function init () {
         clearTimeout(initialMenuHidingTimeoutID)
         initialMenuHidingTimeoutID = null
       }
-      // When open, left may be '' or '0' or '0px'.  When closed, it's reliably
-      // '-280px', so test against that.
+      
       if (menu.classList.contains('hidden')) {
+        // It's closed; open it.
         menu.classList.remove('hidden')
+        menuHandle.src = 'imgs/menuHandleVLIn.png'
+
         if (!editFrame.classList.contains('hidden')) {
           hideEditFrame()
-        }
-        // It's closed; open it.
-        menuHandle.src = 'imgs/menuHandleVLIn.png'
+        }        
       } else {
         // It's open; close it, and close Examples with it.
         menu.classList.add('hidden')
@@ -162,8 +164,6 @@ function init () {
     })
   }
 
-  // let footer = document.querySelector('#footer')
-  let parametersdiv   = document.querySelector('#parametersdiv')
   
 
   function hideEditFrame() {
