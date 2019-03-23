@@ -30,8 +30,8 @@ Purpose:
     </div>
 
     <div id="buttonMenu">
-        <button id="updateRendering" class="btn" title="refresh view"><i class="material-icons">refresh</i></button>
-        <button id="beautify" class="btn" title="reformat"><i class="material-icons">format_indent_increase</i></button>
+        <button id="updateRendering" class="btn btn-round" title="Render Code"><i class="material-icons">refresh</i></button>
+        <button id="beautify" class="btn btn-round" title="Tidy Code (JS)"><i class="material-icons">format_indent_increase</i></button>
     </div>
       
 <!-- sliding tab (help, links, examples, options, etc) -->
@@ -42,6 +42,7 @@ Purpose:
       <table class="info">
         <tr><td class="infoView" colspan=2>Editor</td></tr>
         <tr><td align="right" class="infoOperation">Render Code</td><td class="infoKey">F5 or SHIFT + Return</td></tr>
+        <tr><td align="right" class="infoOperation">Tidy Code (JS)</td><td class="infoKey">F6</td></tr>
         <tr><td align="right" class="infoOperation">Save To Cache</td><td class="infoKey">CTRL + S</td></tr>
         <tr><td align="right" class="infoOperation">Load From Cache</td><td class="infoKey">CTRL + L</td></tr>
         <tr><td align="right" class="infoOperation">Clear Cache</td><td class="infoKey">CTRL + SHIFT + \</td></tr>
@@ -170,8 +171,8 @@ function main() {
         <div id="filedropzone_filled">
           <span id="currentfile">...</span>
           <div id="filebuttons">
-            <button id="getstlbutton" style="display: none;" onclick="getStl();">Get STL</button>
-            <button id="reloadAllFiles">Reload</button>
+            <button id="getstlbutton" class="btn" onclick="getStl();">Get STL</button>
+            <button id="reloadAllFiles" class="btn">Reload</button>
            <!--button onclick="parseFile(gCurrentFile,true,false);">Debug (see below)</button-->
             <label for="autoreload">Auto Reload</label><input type="checkbox" name="autoreload" value="" id="autoreload">
           </div>
