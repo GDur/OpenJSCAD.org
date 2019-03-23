@@ -192,6 +192,7 @@ Processor.prototype = {
     }
     this.statusbuttons.appendChild(this.formatDropdown)
     this.generateOutputFileButton = document.createElement('button')
+    this.generateOutputFileButton.classList.add('btn')
     this.generateOutputFileButton.onclick = function (e) {
       that.generateOutputFile()
     }
