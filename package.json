@@ -4,12 +4,12 @@
   "description": "",
   "repository": "https://github.com/Spiritdude/OpenJSCAD.org",
   "scripts": {
-    "test": "lerna bootstrap && lerna run test",
+    "test": "npm i && npm run bootstrap && lerna run test",
     "lint": "eslint packages/**/*.js",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap  --ignore-prepublish --no-ci",
     "clean": "lerna clean",
     "cli": "npm run bootstrap && cd ./packages/cli",
-    "web": "npm run bootstrap && cd ./packages/web && npm run start-dev",
+    "web": "npm run bootstrap && cd ./packages/web && npm run dev",
     "desktop": "npm run bootstrap && cd ./packages/desktop && npm run dev",
     "publish": "git checkout master && git pull origin master && npm t && lerna publish --conventional-commits",
     "publish-dryrun": "git checkout master && git pull origin master && npm t && lerna publish --conventional-commits --skip-git --skip-npm"
@@ -29,11 +29,10 @@
     }
   ],
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "ava": "^0.23.0",
-    "lerna": "2.7.0"
+    "ava": "^0.25.0",
+    "lerna": "3.11.0"
   },
   "collective": {
     "type": "opencollective",
